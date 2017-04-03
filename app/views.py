@@ -13,7 +13,7 @@ def index():
     return render_template("index.html")
 
 
-@app.route('/login')
+@app.route('/login', methods = ['GET', 'POST'])
 def login():
     """ setup login route """
     form = LoginForm()
