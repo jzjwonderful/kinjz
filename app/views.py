@@ -9,4 +9,4 @@ def index():
 
 @app.route('/login')
 def login():
-    return "can not find login page"
+    return "cann't find login page"
