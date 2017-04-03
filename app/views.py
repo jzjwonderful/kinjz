@@ -7,6 +7,6 @@ def index():
     #return jsonify({'name':'jared','email':'test@qq.com'})
     return render_template("index.html")
 
-@app.route('login')
+@app.route('/login')
 def login():
     return "can not find login page"
