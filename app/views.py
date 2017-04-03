@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """ import module or package"""
 from app import app
-from flask import render_templates
+from flask import render_template
 from .forms import LoginForm
 
 @app.route('/')
