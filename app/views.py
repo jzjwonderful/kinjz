@@ -6,3 +6,7 @@ from flask import request
 def index():
     print(request.__dict__)
     return jsonify({'name':'jared','email':'test@qq.com'})
+
+@app.route('login')
+def login():
+    return "can not find login page"
