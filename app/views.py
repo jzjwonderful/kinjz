@@ -2,8 +2,9 @@
 # -*- coding: utf-8 -*-
 """ import module or package"""
 from app import app
-from flask import render_template
-from flask_bootstrap import Bootstrap
+from flask import render_templates
+from .forms import LoginForm
+
 @app.route('/')
 @app.route('/index')
 def index():
@@ -15,4 +16,5 @@ def index():
 @app.route('/login')
 def login():
     """ setup login route """
-    return "cann't find login page"
+    form = LoginForm()
+    return render_templates("login.html",title="Login",form=form)

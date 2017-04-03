@@ -1,0 +1,17 @@
+<!-- extend from base layout -->
+{% extends "base.html" %}
+
+{% block page_content %}
+<div>
+<h1 class='page-header'>Sign In</h1>
+<form role='form' sclass="form-horizontal" action="" method="post" name="login">
+    {{form.hidden_tag()}}
+    <p>
+        Please enter your OpenID:<br>
+        {{form.openid(size=80)}}<br>
+    </p>
+    <p>{{form.remember_me}} Remember Me</p>
+    <p><input type="submit" value="Sign In"></p>
+</form>
+</div>
+{% endblock %}

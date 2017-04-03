@@ -5,9 +5,8 @@
 from flask_wtf import Form
 from wtforms import BooleanField, StringField, SubmitField
 from wtforms.validators import DataRequired
-from 
 
-class KinForm(Form):
-    pk1 = StringField(validators=[DataRequired()])
-    pk2 = StringField(validators=[DataRequired()])
-    submit = SubmitField(label='PK')
+
+class LoginForm(Form):
+    openid = StringField('openid', validators=[DataRequired()])
+    remember_me = BooleanField('remember_me', default=False)
