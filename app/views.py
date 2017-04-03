@@ -17,4 +17,4 @@ def index():
 def login():
     """ setup login route """
     form = LoginForm()
-    return render_templates("login.html",title="Login",form=form)
+    return render_template("login.html",title="Login",form=form)
