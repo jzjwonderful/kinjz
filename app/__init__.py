@@ -1,3 +1,7 @@
+# 编码设置
+import sys
+sys.setdefaultencoding('utf-8')
+
 from flask import Flask
 app = Flask(__name__)
 app.config.from_object('config')    # 读取配置
