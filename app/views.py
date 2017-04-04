@@ -85,7 +85,7 @@ def after_login(resp):
         remember_me = session['remember_me']
         session.pop('remember_me', None)
     login_user(user, remember = remember_me)
-    flash('welcome to kin.xyz, current time: %s' % timestamp_datetime(timestamp)
+    flash('welcome to www.kin.xyz, current time: %s' % timestamp_datetime(timestamp))
     return redirect(request.args.get('next') or url_for('index'))
 
 @lm.user_loader
