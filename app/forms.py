@@ -20,5 +20,8 @@ class UserInfo():
     nickname = ""
     email = ""
     def  __init__(self,nickname,email):
-        nickname = nickname
-        email = email
+        self.nickname = nickname
+        self.email = email
+
+    def __repr__(self):
+        return '<nickname %r, email %r>' % (self.nickname,self.email)
