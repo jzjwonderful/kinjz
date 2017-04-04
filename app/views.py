@@ -34,7 +34,7 @@ def index():
 @oid.loginhandler
 def login():
     """ setup login route """
-    if g.user is not None and g.user.is_authenticated_ex():
+    if g.user is not None:
         return redirect(url_for('index'))
     form = LoginForm()
     if form.validate_on_submit():
