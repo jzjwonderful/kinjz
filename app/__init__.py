@@ -10,5 +10,5 @@ db = SQLAlchemy(app)
 from flask_bootstrap import Bootstrap
 bootstrap = Bootstrap(app)
 
-# views
+# views and models
 from app import views, models
