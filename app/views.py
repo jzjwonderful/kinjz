@@ -42,6 +42,7 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         session['remember_me'] = form.remember_me.data
+        print(form.openid.data)
         return oid.try_login(form.openid.data, ask_for=['nickname', 'email']) # asyn call,if success,call after_login
     print('called login3()')
     return render_template("login.html",title="Login",form=form,
