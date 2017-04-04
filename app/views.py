@@ -72,6 +72,8 @@ def after_login(resp):
 
     # get utc timestamp int value
     timestamp = datetime.datetime.utcnow()
+    datetime.datetime.ti
+    timestamp.
     user = User.query.filter_by(email=resp.email).first()
     if user is None:
         nickname = resp.nickname
