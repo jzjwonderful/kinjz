@@ -2,11 +2,11 @@
 # -*- coding: utf-8 -*-
 """declarate form class"""
 
-from flask_wtf import Form
+from flask_wtf import FlaskForm
 from wtforms import BooleanField, StringField, SubmitField
 from wtforms.validators import DataRequired
 
 
-class LoginForm(Form):
+class LoginForm(FlaskForm):
     openid = StringField('openid', validators=[DataRequired()])
     remember_me = BooleanField('remember_me', default=False)
