@@ -39,11 +39,15 @@ def login():
     if g.user is not None and g.user.is_authenticated:
         return redirect(url_for('index'))
     print('called login2()')
-    form = LoginForm()
+    #form = LoginForm()
+    form = LoginUsr()
     if form.validate_on_submit():
         session['remember_me'] = form.remember_me.data
-        print(form.openid.data)
-        return oid.try_login(form.openid.data, ask_for=['nickname', 'email']) # asyn call,if success,call after_login
+        print(form.nickname.data,form.email.data)
+        #return oid.try_login(form.openid.data, ask_for=['nickname', 'email']) # asyn call,if success,call after_login
+        resp.nickname = form.nickname
+        resp.email = form.email
+        return after_login(resp)
     print('called login3()')
     return render_template("login.html",title="Login",form=form,
     providers = app.config['OPENID_PROVIDERS'])
