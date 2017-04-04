@@ -6,7 +6,8 @@ from app import app, lm, oid, db
 from flask import render_template, flash, redirect, session, url_for, request, g
 from .forms import LoginForm, LoginUsr, UserInfo
 from .models import User
-import datetime, time
+from datetime import datetime, timezone, timedelta
+import time
 
 def timestamp_datetime(value):
     format = '%Y-%m-%d %H:%M:%S'
@@ -71,7 +72,7 @@ def after_login(resp):
         return redirect(url_for('login'))
 
     # get utc timestamp int value
-    timestamp = datetime.datetime.utcnow()
+    timestamp = datetime.utcnow()
     user = User.query.filter_by(email=resp.email).first()
     if user is None:
         nickname = resp.nickname

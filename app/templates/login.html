@@ -3,15 +3,14 @@
 
 {% block page_content %}
 <div>
-<h1 class='page-header'>Sign In</h1>
+<h1 class='page-header'>填写您的信息</h1>
 <form role='form' class="form-horizontal" action="" method="POST" name="login">
     {{form.hidden_tag()}}
     <p>
-        Please enter your OpenID:<br>
-        <span style="color: black">nickname:</span>{{form.nickname()}}<br>
-        <span style="color: black">email:</span>{{form.email()}}<br>
+        <span style="color: black;width: 20px">昵称:</span>{{form.nickname()}}<br>
+        <span style="color: black;width: 20px">邮箱:</span>{{form.email()}}<br>
     </p>
-    <p>{{form.remember_me}} Remember Me</p>
+    <p>{{form.remember_me}} 记住我</p>
     <p><input type="submit" value="登陆"></p>
 </form>
 </div>
