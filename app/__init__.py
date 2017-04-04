@@ -10,11 +10,15 @@ db = SQLAlchemy(app)
 from flask_bootstrap import Bootstrap
 bootstrap = Bootstrap(app)
 
+# openid login
+from flask_openid import OpenID
+from flask_login import LoginManager
+from config import basedir
+
+lm = LoginManager()
+lm.init_app(app)
+lm.login_view = 'login' # tell LoginManager which view to login
+oid = OpenID(app, os.path.join(basedir, 'tmp'))
+
 # views
 from app import views, models
-
-# openid 
-from flask_openid import OpenID
-
-# login
-from flask_login import LoginManager
