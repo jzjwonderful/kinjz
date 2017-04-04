@@ -55,7 +55,6 @@ def login():
     form = LoginUsr()
     if form.validate_on_submit():
         session['remember_me'] = form.remember_me.data
-        print(form.nickname.data,form.email.data)
         resp = UserInfo(form.nickname.data,form.email.data)
         #return oid.try_login(form.openid.data, ask_for=['nickname', 'email']) # asyn call,if success,call after_login
         return after_login(resp)
