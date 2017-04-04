@@ -87,9 +87,10 @@ def after_login(resp):
         remember_me = session['remember_me']
         session.pop('remember_me', None)
     login_user(user, remember = remember_me)
+    # convert to beijing time
     current_time =  timestamp.astimezone(timezone(timedelta(hours=8)))
-    print('%r,%r' %timestamp,)
-    flash('welcome to www.kin.xyz, current time: %s' % timestamp)
+    print('%r,%r' % (timestamp,current_time))
+    flash('welcome to www.kin.xyz, current time: %s' % current_time.strftime('%Y-%m-%d %H:%M:%S'))
     return redirect(request.args.get('next') or url_for('index'))
 
 @lm.user_loader

@@ -1,5 +1,5 @@
 {% extends "bootstrap/base.html" %}
-{% block title %}Play With Flask{% endblock %}
+{% block title %}KinJz{% endblock %}
 {% block navbar %}
 <div class="navbar navbar-inverse" role="navigation">
     <div class="container">
@@ -15,9 +15,9 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="/">Home</a></li>
+                <li><a href="/">主页</a></li>
                 {% if g.user.is_authenticated %}
-                <li><a href="{{ url_for('logout') }}">logout</a></li>
+                <li><a href="{{ url_for('logout') }}">注销</a></li>
                 {% endif %}
             </ul>
         </div>      
