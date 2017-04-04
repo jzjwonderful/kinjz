@@ -45,9 +45,7 @@ def login():
         session['remember_me'] = form.remember_me.data
         print(form.nickname.data,form.email.data)
         #return oid.try_login(form.openid.data, ask_for=['nickname', 'email']) # asyn call,if success,call after_login
-        resp.nickname = form.nickname
-        resp.email = form.email
-        return after_login(resp)
+        return after_login(form)
     print('called login3()')
     return render_template("login.html",title="Login",form=form,
     providers = app.config['OPENID_PROVIDERS'])
