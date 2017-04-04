@@ -6,6 +6,17 @@ from app import app, lm, oid, db
 from flask import render_template, flash, redirect, session, url_for, request, g
 from .forms import LoginForm, LoginUsr, UserInfo
 from .models import User
+import datetime, time
+
+def timestamp_datetime(value):
+    format = '%Y-%m-%d %H:%M:%S'
+    # value为传入的值为时间戳(整形)，如：1332888820
+    value = time.localtime(value)
+    ## 经过localtime转换后变成
+    ## time.struct_time(tm_year=2012, tm_mon=3, tm_mday=28, tm_hour=6, tm_min=53, tm_sec=40, tm_wday=2, tm_yday=88, tm_isdst=0)
+    # 最后再经过strftime函数转换为正常日期格式。
+    dt = time.strftime(format, value)
+    return dt
 
 @app.before_request
 def before_request():
@@ -58,12 +69,15 @@ def after_login(resp):
     if resp.email is None or resp.email == "":
         flash('Invalid login. Please try again.')
         return redirect(url_for('login'))
+
+    # get utc timestamp int value
+    timestamp = datetime.datetime.utcnow()
     user = User.query.filter_by(email=resp.email).first()
     if user is None:
         nickname = resp.nickname
         if nickname is None or nickname == "":
             nickname = resp.email.split('@')[0]
-        user = User(nickname=nickname, email=resp.email)
+        user = User(nickname=nickname, email=resp.email,regtime = timestamp)
         db.session.add(user)
         db.session.commit()
     remember_me = False
@@ -71,6 +85,7 @@ def after_login(resp):
         remember_me = session['remember_me']
         session.pop('remember_me', None)
     login_user(user, remember = remember_me)
+    flash('welcome to kin.xyz, current time: %s' % timestamp_datetime(timestamp)
     return redirect(request.args.get('next') or url_for('index'))
 
 @lm.user_loader

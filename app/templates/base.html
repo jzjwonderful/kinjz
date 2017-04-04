@@ -16,15 +16,11 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="/">Home</a></li>
-            </ul>
-        </div>
-        {% if g.user.is_authenticated %}
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
+                {% if g.user.is_authenticated %}
                 <li><a href="{{ url_for('logout') }}">logout</a></li>
+                {% endif %}
             </ul>
-        </div>
-        {% endif %}
+        </div>      
     </div>
 </div>
 {% endblock %}
