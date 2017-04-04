@@ -72,7 +72,7 @@ def after_login(resp):
         return redirect(url_for('login'))
 
     # get utc timestamp int value
-    timestamp = datetime.utcnow()
+    timestamp = datetime.utcnow().replace(tzinfo=timezone.utc) # 拿到UTC时间，并强制设置时区为UTC+0:00
     user = User.query.filter_by(email=resp.email).first()
     if user is None:
         nickname = resp.nickname
