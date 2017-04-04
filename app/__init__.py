@@ -11,4 +11,4 @@ from flask_bootstrap import Bootstrap
 bootstrap = Bootstrap(app)
 
 # views
-from app import views
+from app import views, models
