@@ -10,5 +10,11 @@ db = SQLAlchemy(app)
 from flask_bootstrap import Bootstrap
 bootstrap = Bootstrap(app)
 
-# views and models
+# views
 from app import views, models
+
+# openid 
+from flask_openid import OpenID
+
+# login
+from flask_login import LoginManager
