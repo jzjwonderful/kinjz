@@ -12,3 +12,10 @@ bootstrap = Bootstrap(app)
 
 # views
 from app import views, models
+
+# openid 
+from flask_openid import OpenID
+
+# login
+from flask_login import LoginManager
+
