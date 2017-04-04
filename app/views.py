@@ -16,6 +16,7 @@ def before_request():
 @login_required # only show if user login
 def index():
     """ setup index route """
+    print('called index()')
     user = g.user
     posts = [
         {
@@ -34,18 +35,22 @@ def index():
 @oid.loginhandler
 def login():
     """ setup login route """
+    print('called login1()')
     if g.user is not None:
         return redirect(url_for('index'))
+    print('called login2()')
     form = LoginForm()
     if form.validate_on_submit():
         flash('login success with:' + form.openid.data + ',rember me with:'+str(form.remember_me.data))
         return redirect('/index')
+    print('called login3()')
     return render_template("login.html",title="Login",form=form,
     providers = app.config['OPENID_PROVIDERS'])
 
 
 @oid.after_login
 def after_login(resp):
+    print('called after_login()')
     if resp.email is None or resp.email == "":
         flash('Invalid login. Please try again.')
         return redirect(url_for('login'))
@@ -66,9 +71,11 @@ def after_login(resp):
 
 @lm.user_loader
 def load_user(id):
+    print('called load_user()')
     return User.query.get(int(id))
 
 @app.route('/logout')
 def logout():
+    print('called logout()')
     logout_user()
     return redirect(url_for('index'))
