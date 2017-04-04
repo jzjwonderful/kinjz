@@ -22,6 +22,6 @@ lm = LoginManager()
 lm.init_app(app)
 lm.login_view = 'login' # tell LoginManager which view to login
 oid = OpenID(app, os.path.join(basedir, 'tmp'))
-lm.login_message = u"欢迎回来!"
+lm.login_message = None
 # views
 from app import views, models
