@@ -15,3 +15,10 @@ class LoginUsr(FlaskForm):
     nickname = StringField('nickname', validators=[DataRequired()])
     email = StringField('email', validators=[DataRequired()])
     remember_me = BooleanField('remember_me', default=False)
+
+class UserInfo():
+    nickname = ""
+    email = ""
+    def  __init__(self,nickname,email):
+        nickname = nickname
+        email = email

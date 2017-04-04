@@ -4,7 +4,7 @@
 from flask_login import login_user, logout_user, current_user, login_required
 from app import app, lm, oid, db
 from flask import render_template, flash, redirect, session, url_for, request, g
-from .forms import LoginForm, LoginUsr
+from .forms import LoginForm, LoginUsr, UserInfo
 from .models import User
 
 @app.before_request
@@ -44,8 +44,9 @@ def login():
     if form.validate_on_submit():
         session['remember_me'] = form.remember_me.data
         print(form.nickname.data,form.email.data)
+        resp = UserInfo(form.nickname.data,form.email.data)
         #return oid.try_login(form.openid.data, ask_for=['nickname', 'email']) # asyn call,if success,call after_login
-        return after_login(form)
+        return after_login(resp)
     print('called login3()')
     return render_template("login.html",title="Login",form=form,
     providers = app.config['OPENID_PROVIDERS'])
