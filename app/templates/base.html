@@ -1,4 +1,7 @@
 {% extends "bootstrap/base.html" %}
+<style>
+    .bot{position: fixed;bottom: 20px;width: 100%;text-align: center;left: 0;}
+</style>
 {% block title %}KinJz{% endblock %}
 {% block navbar %}
 <div class="navbar navbar-inverse" role="navigation">
@@ -28,11 +31,7 @@
 <div class="container">
     {% block page_content %}{% endblock %}
 </div>
-{% endblock %}
-{% block footer %}
 <div class="mastfoot">
-<div class="inner">
     <a href='https://github.com/jzjwonderful/kinjz'>Github地址</a>
-</div>
 </div>
 {% endblock %}
