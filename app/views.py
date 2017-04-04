@@ -36,7 +36,7 @@ def index():
 def login():
     """ setup login route """
     print('called login1()')
-    if g.user is not None:
+    if g.user is not None and g.user.is_authenticated():
         return redirect(url_for('index'))
     print('called login2()')
     form = LoginForm()
