@@ -14,6 +14,7 @@ bootstrap = Bootstrap(app)
 from flask_openid import OpenID
 from flask_login import LoginManager
 from config import basedir
+import os
 
 lm = LoginManager()
 lm.init_app(app)
