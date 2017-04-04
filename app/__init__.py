@@ -3,7 +3,7 @@ app = Flask(__name__)
 app.config.from_object('config')    # 读取配置
 
 # sql
-from flask_sqlichemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy(app)
 
 # bootstrap
