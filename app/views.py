@@ -88,7 +88,7 @@ def after_login(resp):
     login_user(user, remember = remember_me)
     # convert to beijing time
     current_time =  timestamp.astimezone(timezone(timedelta(hours=8)))
-    print('%r,%r' % (timestamp,current_time))
+    print('登陆时间:%s' % current_time.strftime('%Y-%m-%d %H:%M:%S'))
     flash('当前时间: %s' % current_time.strftime('%Y-%m-%d %H:%M:%S'))
     return redirect(request.args.get('next') or url_for('index'))
 
