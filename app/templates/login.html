@@ -26,7 +26,7 @@ function set_openid(openid, pr)
             <span style="color:red">[{{error}}]</span>
             <br>
         {%endfor%}
-        {% for pr in Providers %}
+        {% for pr in providers %}
             <a href="javascript:set_openid('{{ pr.url }}', '{{ pr.name }}');">{{ pr.name }}</a> |
         {% endfor %}
     </p>
