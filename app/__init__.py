@@ -1,7 +1,4 @@
 # 编码设置
-import sys
-sys.set
-sys.setdefaultencoding('utf-8')
 
 from flask import Flask
 app = Flask(__name__)
